@@ -1,5 +1,5 @@
 import {PostData} from "../types/postData";
 
-export interface MyPostsProps {
+export interface PostsProps {
     postsData: Array<PostData>
 }
