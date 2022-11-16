@@ -9,17 +9,20 @@ import {PostsProps} from "./interfaces/postsProps";
 import {DialogsProps} from "./interfaces/dialogsProps";
 import {MessagesProps} from "./interfaces/messagesProps";
 
+interface AppProps {
+    postsData: PostsProps
+    dialogsData: DialogsProps
+    messagesData: MessagesProps
+}
 
-
-
-function App({postsData}: PostsProps, {dialogsData}: DialogsProps, {messagesData}: MessagesProps) {
+function App({postsData, dialogsData, messagesData}: AppProps) {
     return (
         <div className={classes.wrapper}>
                 <Header/>
                 <Navbar/>
                 <div className={classes.wrapper__content}>
                     <Routes>
-                        <Route path="/dialogs/*" element={<Dialogs dialogsData={dialogsData} messagesData={messagesData} />}/>
+                        <Route path="/dialogs/*" element={<Dialogs dialogsData={dialogsData.dialogsData} messagesData={messagesData.messagesData} />}/>
                         <Route path="/profile/*" element={<Profile postsData = {postsData}/>}/>
                     </Routes>
                 </div>

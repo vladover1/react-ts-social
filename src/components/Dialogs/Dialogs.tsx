@@ -2,11 +2,15 @@ import React from 'react';
 import classes from './Dialogs.module.scss';
 import Message from "./Message/Message";
 import DialogItem from "./DialogItem/DialogItem";
-import {DialogsProps} from "../../interfaces/dialogsProps";
-import {MessagesProps} from "../../interfaces/messagesProps";
+import {DialogData} from "../../types/dialogData";
+import {MessageData} from "../../types/messageData";
 
-const Dialogs = ({dialogsData}: DialogsProps, {messagesData}: MessagesProps) => {
+interface ChatProps {
+    dialogsData: Array<DialogData>,
+    messagesData: Array<MessageData>
+}
 
+const Dialogs = ({dialogsData, messagesData}: ChatProps) => {
 
     let dialogsElements = dialogsData.map( dialog => <DialogItem name={dialog.name} id={dialog.id}/>)
     let messagesElements = messagesData.map(message => <Message message={message.message}/>)

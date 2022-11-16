@@ -6,12 +6,12 @@ import {PostsProps} from "../../interfaces/postsProps";
 
 
 
-const Profile = ({postsData}: PostsProps) => {
+const Profile = ({postsData}: {postsData: PostsProps}) => {
 
     return (
     <div>
         <ProfileInfo/>
-        <MyPosts postsData = {postsData} />
+        <MyPosts postsData = {postsData.postsData} />
     </div>
     );
 };
